@@ -57,6 +57,16 @@ def main():
             cookies
     )
 
+    print(user)
+    password = pass_enum(
+        url,
+        user.strip(),
+        './passwords.txt',
+        headers=headers,
+        cookies=cookies
+    )
+    print(password)
+
 
 
 if __name__ == "__main__":
