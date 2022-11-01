@@ -5,6 +5,8 @@ headers = {}
 cookies = {}
 data = {}
 
-def username_enum():
+def user_enum():
     pass
 
+def pass_enum():
+    pass
