@@ -31,6 +31,15 @@ def user_enum(url, user_file_list, headers, cookies):
             res = make_user_call(url, line.strip(), headers, cookies)
             if 'Invalid username' not in res.text:
                 return line
+@sleep_and_retry
+@limits(calls=MAX_CALLS_PER_MINUTE, period=ONE_MINUTE)
+def make_pass_call(url, username, password, headers, cookies):
+    return post(
+            url=url,
+            data={'username': username, 'password': password},
+            headers=headers,
+            cookies=cookies
+        )
 
 def pass_enum(url, username, pass_file_list, headers, cookies):
     with Path(pass_file_list).open('r') as file:
