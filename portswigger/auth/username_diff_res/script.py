@@ -22,3 +22,5 @@ def user_enum(url, user_file_list, headers, cookies):
 def pass_enum():
     pass
 
+def main():
+    pass
