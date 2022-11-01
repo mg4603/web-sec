@@ -12,7 +12,7 @@ def user_enum(url, user_file_list, headers, cookies):
         for line in lines:
             res = post(url=url, data={'username': line, 'password': 'asdf'})
             if 'Invalid username' not in res.text:
-                print(line)
+                return line
 
 def pass_enum():
     pass
