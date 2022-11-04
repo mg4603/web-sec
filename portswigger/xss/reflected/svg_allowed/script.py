@@ -9,4 +9,5 @@ url = 'https://INSTANCE-ID.web-security-academy.net/'
 @sleep_and_retry
 @limits(calls=MAX_CALLS_PER_MINUTE, period=ONE_MINUTE)
 def make_tag_call(url, tag):
-    pass
+    return get(f'{url}<{tag}>')
+    
