@@ -39,4 +39,6 @@ def event_enum(url, tag, event_file_path):
 def main():
     tag = tag_enum(url, 'tags.txt')
     print(tag)
-    
+
+if __name__ == "__main__":
+    main()
