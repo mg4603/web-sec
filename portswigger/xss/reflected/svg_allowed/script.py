@@ -30,11 +30,11 @@ def event_enum(url, tag, event_file_path):
     events = []
     with Path(event_file_path).open('r') as file:
         for event in file.readlines():
-            response = make_event_call(url, tag, event)
+            response = make_event_call(url, tag.strip(), event.strip())
             if response.status_code != 400:
                 events.append(event)
     return events
-    
+
 def main():
     pass
 
