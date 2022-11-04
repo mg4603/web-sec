@@ -31,3 +31,6 @@ def event_enum(url, tag, event_file_path):
 
 def main():
     pass
+
+if __name__ == '__main__':
+    main()
