@@ -29,3 +29,5 @@ def make_event_call(url, tag, event):
 def event_enum(url, tag, event_file_path):
     pass
 
+def main():
+    pass
