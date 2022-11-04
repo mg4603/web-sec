@@ -20,3 +20,8 @@ def tag_enum(url, tag_file_path):
                 tags.append(tag)
     
     return tags
+
+@sleep_and_retry
+@limits(calls=MAX_CALLS_PER_MINUTE, period=ONE_MINUTE)
+def make_event_call(url, tag, event):
+    pass
