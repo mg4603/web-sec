@@ -10,4 +10,6 @@ url = 'https://INSTANCE-ID.web-security-academy.net/'
 @limits(calls=MAX_CALLS_PER_MINUTE, period=ONE_MINUTE)
 def make_tag_call(url, tag):
     return get(f'{url}<{tag}>')
-    
+
+def tag_enum(url, tag_file_path):
+    pass
