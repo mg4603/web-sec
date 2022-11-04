@@ -4,14 +4,14 @@ from ratelimit import limits, RateLimitException, sleep_and_retry
 
 ONE_MINUTE = 60
 MAX_CALLS_PER_MINUTE = 120
-url = 'https://0a3e001f0401142ec02f7db9002000b7.web-security-academy.net/login'
+url = 'https://LAB-INSTANCE.web-security-academy.net/login'
 headers = {
     'Content-Type': 'application/x-www-form-urlencoded',
-    'Referer': 'https://0a3e001f0401142ec02f7db9002000b7.web-security-academy.net/',
+    'Referer': 'https://LAB-INSTANCE.web-security-academy.net/',
 
 }
 cookies = {
-    'session': 'EaPnUa21exELsUbGQqJUqSUjiFfRbwyF'
+    'session': 'SESSION-TOKEN'
 }
 
 @sleep_and_retry
