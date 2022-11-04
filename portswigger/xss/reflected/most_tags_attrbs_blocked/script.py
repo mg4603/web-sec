@@ -1,5 +1,5 @@
 from requests import get
-from ratelimit import limits, RetryLimitException, sleep_and_retry
+from ratelimit import limits, RateLimitException, sleep_and_retry
 from pathlib import Path
 
 url = 'https://INSTANCE-ID.web-security-academy.net/?search=<'
@@ -39,6 +39,8 @@ def event_enum(url, tag, event_file_path):
 def main():
     tag = tag_enum(url, 'tags.txt')
     print(tag)
+    event = event_enum(url, tag, 'events.txt')
+    print(event)
 
 if __name__ == "__main__":
     main()
