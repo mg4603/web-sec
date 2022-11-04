@@ -29,12 +29,13 @@ def make_event_call(url, tag, event):
 
 def event_enum(url, tag, event_file_path):
     with Path(event_file_path).open('r') as file:
+        events = []
         for event in file.readlines():
             response = make_event_call(url, tag.strip(), event.strip())
             if response.status_code != 400:
-                return event
+                events.append(event)
                 
-    return "NOT FOUND"
+    return events
 
 def main():
     tag = tag_enum(url, 'tags.txt')
