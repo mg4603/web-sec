@@ -35,3 +35,8 @@ def event_enum(url, tag, event_file_path):
                 return event
                 
     return "NOT FOUND"
+
+def main():
+    tag = tag_enum(url, 'tags.txt')
+    print(tag)
+    
