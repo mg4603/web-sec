@@ -17,7 +17,7 @@ def tag_enum(url, tag_file_path):
         for tag in file.readlines():
             response = make_tag_call(url, tag.strip())
             if response.status_code != 400:
-                tags.append(tag)
+                tags.append(tag.strip())
     
     return tags
 
