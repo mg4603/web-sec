@@ -40,8 +40,8 @@ def event_enum(url, tag, event_file_path):
 def main():
     tag = tag_enum(url, 'tags.txt')
     print(tag)
-    event = event_enum(url, tag, 'events.txt')
-    print(event)
+    events = event_enum(url, tag, 'events.txt')
+    print(events)
 
 if __name__ == "__main__":
     main()
