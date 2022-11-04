@@ -36,7 +36,11 @@ def event_enum(url, tag, event_file_path):
     return events
 
 def main():
-    pass
-
+    tags = tag_enum(url, 'tags.txt')
+    print(tags)
+    for tag in tags:
+        events = event_enum(url, tag, 'events.txt')
+        print(tag, ':', events)
+        
 if __name__ == '__main__':
     main()
