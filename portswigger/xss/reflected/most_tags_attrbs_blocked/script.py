@@ -28,4 +28,10 @@ def make_event_call(url, tag, event):
     return get(f"{url}{tag}%20=1>")
 
 def event_enum(url, tag, event_file_path):
-    pass
+    with Path(event_file_path).open('r') as file:
+        for event in file.readlines():
+            response = make_event_call(url, tag.strip(), event.strip())
+            if response.status_code != 400:
+                return event
+                
+    return "NOT FOUND"
