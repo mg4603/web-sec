@@ -24,4 +24,4 @@ def tag_enum(url, tag_file_path):
 @sleep_and_retry
 @limits(calls=MAX_CALLS_PER_MINUTE, period=ONE_MINUTE)
 def make_event_call(url, tag, event):
-    pass
+    return get(f'{url}<{tag}%20{event}>')
