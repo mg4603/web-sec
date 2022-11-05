@@ -8,4 +8,8 @@ function encodePayload(payloadString)
     return encodePayload;
 }
 
+function preparePayload(encodedPayload){
+    return 'String.fromCharCode('+encodedPayload+')';
+}
+
 // String.fromCharCode(encodedPayload)
