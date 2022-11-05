@@ -33,9 +33,9 @@ def enumerate_user(url, user_file_list, headers, cookies):
     users = []
     with Path(user_file_list).open('r') as file:
         for user in file.readlines():
-            res = make_user_call(url, user, headers, cookies)
+            res = make_user_call(url, user.strip(), headers, cookies)
             if demarcation_response.text != res.text:
-                users.append(user)
+                users.append(user.strip())
     return users
 
 @sleep_and_retry
