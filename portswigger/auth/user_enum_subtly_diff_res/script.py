@@ -16,7 +16,12 @@ cookies = {
 @sleep_and_retry
 @limits(calls=MAX_CALLS_PER_MINUTE, period=ONE_MINUTE)
 def make_user_call(url, user, headers, cookies):
-    pass
+    return post(
+        url, 
+        data={'username': user, 'password': 'asdf'},
+        headers=headers,
+        cookies=cookies
+    )
 
 def enumerate_user(url, user_file_list, headers, cookies):
     pass
