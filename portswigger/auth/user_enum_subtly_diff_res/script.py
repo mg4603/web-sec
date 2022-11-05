@@ -24,7 +24,19 @@ def make_user_call(url, user, headers, cookies):
     )
 
 def enumerate_user(url, user_file_list, headers, cookies):
-    pass
+    demarcation_response = post(
+        url,
+        data={'username': 'obviously_non_existent_user', 'password': 'pass'},
+        headers=headers,
+        cookies=cookies
+    )
+    users = []
+    with Path(user_file_list).open('r') as file:
+        for user in file.readlines():
+            res = make_user_call(url, user, headers, cookies)
+            if demarcation_response.text != res.text:
+                users.append(user)
+    return users
 
 @sleep_and_retry
 @limits(calls=MAX_CALLS_PER_MINUTE, period=ONE_MINUTE)
