@@ -43,7 +43,7 @@ def enumerate_user(url, user_file_list, headers, cookies):
 def make_pass_call(url, user, password, headers, cookies):
     return post(
         url,
-        data={'username': user, 'password': password},
+        data={'username': user.strip(), 'password': password.strip()},
         headers=headers,
         cookies=cookies
     )
