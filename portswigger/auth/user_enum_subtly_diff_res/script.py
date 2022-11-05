@@ -48,7 +48,7 @@ def make_pass_call(url, user, password, headers, cookies):
         cookies=cookies
     )
 
-def password_user(url, user, password_file_list, headers, cookies):
+def enumerate_pass(url, user, password_file_list, headers, cookies):
     demarcation_response = post(
         url,
         data={'username': 'obviously_non_existent_user', 'password': 'asdf'},
