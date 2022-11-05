@@ -18,3 +18,6 @@ cookies = {
 def make_user_call(url, user, headers, cookies):
     pass
 
+def enumerate_user(url, user_file_list, headers, cookies):
+    pass
+
