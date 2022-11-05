@@ -31,3 +31,6 @@ def password_user(url, user, password_file_list, headers, cookies):
 
 def main():
     pass
+
+if __name__ == '__main__':
+    main()
