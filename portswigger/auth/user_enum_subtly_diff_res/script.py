@@ -28,3 +28,6 @@ def make_pass_call(url, user, password, headers, cookies):
 
 def password_user(url, user, password_file_list, headers, cookies):
     pass
+
+def main():
+    pass
