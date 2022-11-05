@@ -41,7 +41,12 @@ def enumerate_user(url, user_file_list, headers, cookies):
 @sleep_and_retry
 @limits(calls=MAX_CALLS_PER_MINUTE, period=ONE_MINUTE)
 def make_pass_call(url, user, password, headers, cookies):
-    pass
+    return post(
+        url,
+        data={'username': user, 'password': password},
+        headers=headers,
+        cookies=cookies
+    )
 
 def password_user(url, user, password_file_list, headers, cookies):
     pass
