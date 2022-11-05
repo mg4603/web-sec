@@ -18,7 +18,7 @@ cookies = {
 def make_user_call(url, user, headers, cookies):
     return post(
         url, 
-        data={'username': user, 'password': 'asdf'},
+        data={'username': user.strip(), 'password': 'asdf'},
         headers=headers,
         cookies=cookies
     )
