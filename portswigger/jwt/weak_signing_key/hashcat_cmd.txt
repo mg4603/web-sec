@@ -1,0 +1,1 @@
+hashcat -a 0 -m 16500 --potfile-path output.txt hash.txt jwt_secrets.txt
