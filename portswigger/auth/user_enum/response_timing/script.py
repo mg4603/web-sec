@@ -23,3 +23,6 @@ def make_user_call(url, user, headers, cookies):
         cookies=cookies
     )
 
+def user_enum(url, usernames_file, headers, cookies):
+    pass
+
