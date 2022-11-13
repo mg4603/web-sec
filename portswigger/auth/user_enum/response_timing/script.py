@@ -30,3 +30,7 @@ def user_enum(url, usernames_file, headers, cookies):
 @limits(calls=MAX_CALLS_PER_MINUTE, period=ONE_MINUTE)
 def make_pass_call(url, user, password, headers, cookies):
     pass
+
+def pass_enum(url, username_file, password_file, headers, cookies):
+    pass
+
