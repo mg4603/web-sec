@@ -26,3 +26,7 @@ def make_user_call(url, user, headers, cookies):
 def user_enum(url, usernames_file, headers, cookies):
     pass
 
+@sleep_and_retry
+@limits(calls=MAX_CALLS_PER_MINUTE, period=ONE_MINUTE)
+def make_pass_call(url, user, password, headers, cookies):
+    pass
