@@ -34,3 +34,5 @@ def make_pass_call(url, user, password, headers, cookies):
 def pass_enum(url, username_file, password_file, headers, cookies):
     pass
 
+def main():
+    pass
