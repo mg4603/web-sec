@@ -36,3 +36,6 @@ def pass_enum(url, username_file, password_file, headers, cookies):
 
 def main():
     pass
+
+if __name__ == '__main__':
+    main()
